@@ -10,7 +10,8 @@ HTML, CSS y JavaScript estáticos, sin dependencias ni compilación. Abrir `inde
 
 - `index.html`: textos, enlace de Docencia y contacto de LinkedIn.
 - `assets/style.css`: diseño, colores y adaptación a móvil.
-- `assets/theme.js`: tema del sistema y selector de modo con preferencia guardada.
+- `assets/venn.css`: diseño y colores del diagrama.
+- `assets/venn.js`: selección e interacción de los círculos.
 - `.nojekyll`: entrega directa de archivos en GitHub Pages.
 
 ## Publicación en GitHub Pages
@@ -29,5 +30,4 @@ Este repositorio contiene exclusivamente la página personal. No necesita copiar
 ## Identidad visual
 
 Paleta: verde `#BDD9BF`, azul `#2E4052`, amarillo `#FFC857`, blanco `#FFFFFF` y ciruela `#412234`.
-El modo claro usa fondo blanco; el oscuro, azul. Las superficies oscuras de Docencia y Otros mezclan los colores de la paleta para reducir el brillo.
-Al ingresar se respeta el tema del sistema. El botón permite cambiarlo y guarda la elección en este navegador. Sin JavaScript se mantiene el tema del sistema mediante CSS.
+El sitio utiliza exclusivamente modo oscuro, con fondo azul y texto claro. Los círculos usan rellenos translúcidos verde `#5DCAA5`, azul `#042C53` y amarillo `#FAC775`, con mezcla en las intersecciones.

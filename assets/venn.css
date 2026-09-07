@@ -1,13 +1,17 @@
 .intro{padding-bottom:30px}
 .venn-section{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(240px,1fr);gap:clamp(28px,5vw,80px);align-items:center;padding:10px 0 24px}
 .venn{position:relative;width:100%;aspect-ratio:1/1;isolation:isolate;container-type:inline-size}
-.venn-circle{position:absolute;width:60%;height:60%;border:1px solid var(--muted);border-radius:50%;background:transparent;color:var(--ink);padding:0;font:inherit;cursor:pointer;transition:background .3s ease,color .3s ease,border-color .3s ease; -webkit-tap-highlight-color:transparent}
-.venn-teaching{left:0;top:0;--fill:var(--sage);--label-color:var(--blue)}
-.venn-salesforce{right:0;top:0;--fill:var(--plum);--label-color:var(--white)}
-.venn-other{left:20%;top:34%;--fill:var(--yellow);--label-color:var(--plum)}
-.venn-circle[data-active="true"]{background:var(--fill);color:var(--label-color);border-color:var(--fill)}
+/* Capas de relleno independientes: la mezcla no afecta textos ni iconos. */
+.venn-circle{position:absolute;width:60%;height:60%;border:0;border-radius:50%;background:transparent;color:var(--ink);padding:0;font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent;--fill-opacity:55%;--stroke-width:1px}
+.venn-circle::before,.venn-circle::after{content:"";position:absolute;inset:0;border-radius:50%;pointer-events:none}
+.venn-circle::before{z-index:0;background:color-mix(in srgb,var(--fill) var(--fill-opacity),transparent);mix-blend-mode:multiply;transition:background-color .3s ease}
+.venn-circle::after{z-index:1;border:var(--stroke-width) solid var(--stroke);transition:border-width .3s ease}
+.venn-teaching,.venn-docencia{left:0;top:0;--fill:#5DCAA5;--stroke:#0F6E56}
+.venn-salesforce{right:0;top:0;--fill:#042C53;--stroke:#042C53}
+.venn-other,.venn-otros{left:20%;top:34%;--fill:#FAC775;--stroke:#854F0B}
+.venn-circle.active,.venn-circle[data-active="true"]{--fill-opacity:75%;--stroke-width:2.5px}
 .venn-circle:focus-visible{outline:3px solid var(--accent);outline-offset:5px}
-.venn-label{position:absolute;display:flex;flex-direction:column;align-items:center;gap:8px;width:62%;top:36%;left:50%;transform:translate(-50%,-50%);pointer-events:none;text-align:center}
+.venn-label{position:absolute;z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;width:62%;top:36%;left:50%;transform:translate(-50%,-50%);pointer-events:none;text-align:center}
 .venn-teaching .venn-label{left:39%}
 .venn-salesforce .venn-label{left:61%}
 .venn-other .venn-label{top:68%}
@@ -22,10 +26,19 @@
 .venn-status{font-size:12px;color:var(--muted)}
 .venn-reset{display:block;margin-top:24px;border:0;border-bottom:1px solid var(--line);padding:8px 0;background:transparent;color:var(--muted);font:inherit;font-size:11px;cursor:pointer}
 .venn-section [hidden]{display:none}
-@media(max-width:680px){.venn-section{grid-template-columns:1fr;gap:0}.venn{max-width:460px;margin-inline:auto}.venn-label{gap:6px}.venn-icon{width:30px;height:30px;font-size:23px}.venn-detail{min-height:240px;padding:10px 8px}.venn-detail .eyebrow{margin-bottom:12px}.closing-note{margin-top:0}}
-@media(prefers-reduced-motion:reduce){.venn-circle{transition:none}}
+@media(max-width:680px){.venn-section{grid-template-columns:1fr;gap:0}.venn{max-width:460px;margin-inline:auto}.venn-label{gap:6px}.venn-icon{width:30px;height:30px;font-size:23px}.venn-detail{min-height:240px;padding:10px 8px}.venn-detail .eyebrow{margin-bottom:12px}}
+@media(prefers-reduced-motion:reduce){.venn-circle::before,.venn-circle::after{transition:none}}
 
 h1{font-weight:500;letter-spacing:-.045em}
 
 /* Poppins para títulos; Inter para textos secundarios y controles. */
 h1,h2,.brand,.venn-label strong{font-family:"Poppins",Arial,sans-serif}
+
+.venn-label strong,.venn-label>span,.venn-icon{background:transparent;box-shadow:none}
+
+/* Contraste sobre los rellenos translúcidos, sin fondos en las etiquetas. */
+:root{--venn-teaching-text:#FFFFFF;--venn-salesforce-text:#FFFFFF;--venn-salesforce-active-text:#FFFFFF;--venn-other-text:#FFFFFF}
+.venn-teaching,.venn-docencia{color:var(--venn-teaching-text)}
+.venn-salesforce{color:var(--venn-salesforce-text)}
+.venn-salesforce.active,.venn-salesforce[data-active="true"]{color:var(--venn-salesforce-active-text)}
+.venn-other,.venn-otros{color:var(--venn-other-text)}

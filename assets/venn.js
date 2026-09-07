@@ -16,6 +16,7 @@
   function show(area) {
     circles.forEach(function (circle) {
       circle.dataset.active = String(circle.dataset.area === area);
+      circle.classList.toggle('active', circle.dataset.area === selected);
       circle.setAttribute('aria-pressed', String(circle.dataset.area === selected));
     });
     title.textContent = area ? content[area][0] : 'Todo se conecta.';
