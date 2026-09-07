@@ -1,0 +1,31 @@
+.intro{padding-bottom:30px}
+.venn-section{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(240px,1fr);gap:clamp(28px,5vw,80px);align-items:center;padding:10px 0 24px}
+.venn{position:relative;width:100%;aspect-ratio:1/1;isolation:isolate;container-type:inline-size}
+.venn-circle{position:absolute;width:60%;height:60%;border:1px solid var(--muted);border-radius:50%;background:transparent;color:var(--ink);padding:0;font:inherit;cursor:pointer;transition:background .3s ease,color .3s ease,border-color .3s ease; -webkit-tap-highlight-color:transparent}
+.venn-teaching{left:0;top:0;--fill:var(--sage);--label-color:var(--blue)}
+.venn-salesforce{right:0;top:0;--fill:var(--plum);--label-color:var(--white)}
+.venn-other{left:20%;top:34%;--fill:var(--yellow);--label-color:var(--plum)}
+.venn-circle[data-active="true"]{background:var(--fill);color:var(--label-color);border-color:var(--fill)}
+.venn-circle:focus-visible{outline:3px solid var(--accent);outline-offset:5px}
+.venn-label{position:absolute;display:flex;flex-direction:column;align-items:center;gap:8px;width:62%;top:36%;left:50%;transform:translate(-50%,-50%);pointer-events:none;text-align:center}
+.venn-teaching .venn-label{left:39%}
+.venn-salesforce .venn-label{left:61%}
+.venn-other .venn-label{top:68%}
+.venn-icon{display:grid;place-items:center;width:36px;height:36px;font-size:28px;line-height:1;color:inherit}
+.venn-label strong{font-size:clamp(16px,4.2cqi,29px);font-weight:600;letter-spacing:-.5px;line-height:1.25}
+.venn-label>span{max-width:17ch;font-size:clamp(9px,1.9cqi,13px);line-height:1.5;text-wrap:balance}
+.venn-detail{min-height:250px}
+.venn-detail .eyebrow{font-size:10px;letter-spacing:1.5px;margin-bottom:20px}
+.venn-detail h2{font-size:clamp(28px,3vw,38px)}
+#area-description{color:var(--muted);font-size:15px;max-width:34ch;margin:18px 0 24px}
+.venn-link{font-size:14px;text-underline-offset:6px;font-weight:600}
+.venn-status{font-size:12px;color:var(--muted)}
+.venn-reset{display:block;margin-top:24px;border:0;border-bottom:1px solid var(--line);padding:8px 0;background:transparent;color:var(--muted);font:inherit;font-size:11px;cursor:pointer}
+.venn-section [hidden]{display:none}
+@media(max-width:680px){.venn-section{grid-template-columns:1fr;gap:0}.venn{max-width:460px;margin-inline:auto}.venn-label{gap:6px}.venn-icon{width:30px;height:30px;font-size:23px}.venn-detail{min-height:240px;padding:10px 8px}.venn-detail .eyebrow{margin-bottom:12px}.closing-note{margin-top:0}}
+@media(prefers-reduced-motion:reduce){.venn-circle{transition:none}}
+
+h1{font-weight:500;letter-spacing:-.045em}
+
+/* Poppins para títulos; Inter para textos secundarios y controles. */
+h1,h2,.brand,.venn-label strong{font-family:"Poppins",Arial,sans-serif}

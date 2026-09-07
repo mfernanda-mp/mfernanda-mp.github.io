@@ -9,8 +9,13 @@
   <meta property="og:description" content="Tres espacios para enseñar, crear y explorar.">
   <meta property="og:type" content="website">
   <title>MFMP · Docencia, Salesforce y otros</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Poppins:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <script src="assets/theme.js"></script>
   <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/venn.css">
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -25,27 +30,32 @@
     <section class="intro" aria-labelledby="bienvenida">
       <p class="eyebrow">MI ESPACIO PERSONAL</p>
       <h1 id="bienvenida">Enseñar, crear.<br>Y seguir explorando<span class="dot">.</span></h1>
-      <p class="intro-copy">Bienvenid@. Aquí se encuentran mis tres frentes:<br class="desktop-break"> la docencia, Salesforce y todo lo que despierta mi curiosidad.</p>
+      <p class="intro-copy">Bienvenid@. Aquí encontrarás un poco de lo que hago<br class="desktop-break">docencia, Salesforce y todo lo demás &#128187;</p>
     </section>
-    <section class="fronts" aria-label="Mis tres frentes">
-      <a class="front front-teaching" href="https://mfmp-docencia.pages.dev/">
-        <div class="front-top"><span class="number">01</span><span class="category">APRENDER Y COMPARTIR</span></div>
-        <div class="front-body"><h2>Docencia</h2><p>Cursos, materiales y recursos para acompañar el aprendizaje.</p></div>
-        <div class="front-bottom"><span>Ir a mi sitio docente</span><span class="arrow" aria-hidden="true">↗</span></div>
-      </a>
-      <article class="front front-salesforce">
-        <div class="front-top"><span class="number">02</span><span class="category">TECNOLOGÍA Y SOLUCIONES</span></div>
-        <div class="front-body"><h2>Salesforce</h2><p>Un espacio para compartir proyectos, aprendizajes y recursos del ecosistema Salesforce.</p></div>
-        <div class="front-bottom"><span class="soon">Próximamente</span><span class="small-dot" aria-hidden="true"></span></div>
-      </article>
-      <article class="front front-other">
-        <div class="front-top"><span class="number">03</span><span class="category">CURIOSIDAD EN MOVIMIENTO</span></div>
-        <div class="front-body"><h2>Otros</h2><p>Ideas, intereses y proyectos que van encontrando su propio lugar.</p></div>
-        <div class="front-bottom"><span class="soon">Próximamente</span><span class="small-dot" aria-hidden="true"></span></div>
-      </article>
+    <section class="venn-section" aria-label="Mis tres frentes">
+      <div class="venn" role="group" aria-label="Explora Docencia, Salesforce y Otros">
+        <button class="venn-circle venn-teaching" type="button" data-area="teaching" aria-pressed="false" aria-controls="venn-detail">
+          <span class="venn-label"><i class="venn-icon bi bi-mortarboard" aria-hidden="true"></i><strong>Docencia</strong><span>Aprender y compartir</span></span>
+        </button>
+        <button class="venn-circle venn-salesforce" type="button" data-area="salesforce" aria-pressed="false" aria-controls="venn-detail">
+          <span class="venn-label"><i class="venn-icon bi bi-cloud" aria-hidden="true"></i><strong>Salesforce</strong><span>Tecnología y soluciones</span></span>
+        </button>
+        <button class="venn-circle venn-other" type="button" data-area="other" aria-pressed="false" aria-controls="venn-detail">
+          <span class="venn-label"><i class="venn-icon bi bi-journal-text" aria-hidden="true"></i><strong>Otros</strong><span>Curiosidad en movimiento</span></span>
+        </button>
+      </div>
+      <div class="venn-detail" id="venn-detail">
+        <p class="eyebrow">TRES FRENTES, UN MISMO ESPACIO</p>
+        <h2 id="area-title">Todo se conecta.</h2>
+        <p id="area-description" hidden></p>
+        <a class="venn-link" id="area-link" href="https://mfmp-docencia.pages.dev/" hidden>Ir a mi sitio docente <span aria-hidden="true">↗</span></a>
+        <p class="venn-status" id="area-status" hidden>Próximamente</p>
+        <button class="venn-reset" type="button" hidden>Volver a la vista general</button>
+      </div>
     </section>
+    <script src="assets/venn.js" defer></script>
     <p class="closing-note">Distintos caminos, las mismas ganas de aprender.</p>
   </main>
-  <footer class="site-footer wrap"><span>MFMP</span><span>Un espacio en construcción, como las buenas ideas.</span></footer>
+  <footer class="site-footer wrap"><span>MFMP</span><span>"Si puedes imaginarlo, puedes programarlo" - Alejandro Taboada</span></footer>
 </body>
 </html>
